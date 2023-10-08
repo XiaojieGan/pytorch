@@ -18,6 +18,10 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v3
 
+      - name: Delete huge unnecessary tools folder
+        run: rm -rf /opt/hostedtoolcache
+
+
       - name: Log in to Docker Hub
         if: github.event_name == 'release'
         uses: docker/login-action@v2
